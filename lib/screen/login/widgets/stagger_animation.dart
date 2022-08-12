@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 
 class StaggerAnimation extends StatelessWidget {
-  final AnimationController controller;
+
+   AnimationController controller;
 
   StaggerAnimation({required this.controller})
       : buttonAnimation = Tween(
