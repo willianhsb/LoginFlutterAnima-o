@@ -6,17 +6,27 @@ class StaggerAnimation extends StatelessWidget {
   final AnimationController controller;
 
   StaggerAnimation({required this.controller})
-      : buttomAnimation = Tween(
-    begin: 320.0,
-    end: 60.0,
-  ).animate(
-    CurvedAnimation(
-      parent: controller,
-      curve: Interval(0.0, 0.150),
-    ),
-  );
+      : buttonAnimation = Tween(
+          begin: 320.0,
+          end: 60.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(0.0, 0.150),
+          ),
+        ),
+        buttonZoomOut = Tween(
+          begin: 60.0,
+          end: 1000.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(0.5, 1, curve: Curves.bounceOut),
+          ),
+        );
 
-  final Animation<double> buttomAnimation;
+  final Animation<double> buttonAnimation;
+  final Animation<double> buttonZoomOut;
 
   Widget _buildAnimation(BuildContext context, Widget? child) {
     return Padding(
@@ -25,28 +35,45 @@ class StaggerAnimation extends StatelessWidget {
         onTap: () {
           controller.forward();
         },
-        child: Container(
-            width: buttomAnimation.value,
-            height: 60,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(
-                30,
-                20,
-                100,
-                1.0,
+        child: buttonZoomOut.value <= 60
+            ? Container(
+                width: buttonAnimation.value,
+                height: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(
+                    30,
+                    20,
+                    100,
+                    1.0,
+                  ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30.0),
+                  ),
+                ),
+                child: _buildInside(context),
+              )
+            : Container(
+                width: buttonZoomOut.value,
+                height: buttonZoomOut.value,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(
+                    30,
+                    20,
+                    100,
+                    1.0,
+                  ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30.0),
+                  ),
+                ),
               ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(30.0),
-              ),
-            ),
-            child: _buildInside(context)),
       ),
     );
   }
 
   Widget _buildInside(BuildContext context) {
-    if (buttomAnimation.value > 75) {
+    if (buttonAnimation.value > 75) {
       return Text(
         "Entrar",
         style: TextStyle(
