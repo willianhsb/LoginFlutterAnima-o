@@ -1,18 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
-import 'package:login_flutter_animacao/screen/home/stagger_animation.dart';
+import 'package:login_flutter_animacao/screen/home/widgets/stagger_animation.dart';
 
 
-class Homescreen extends StatefulWidget {
-  const Homescreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<Homescreen> createState() => _HomescreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomescreenState extends State<Homescreen>
+class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
     late AnimationController _controller;
 
@@ -23,6 +23,7 @@ class _HomescreenState extends State<Homescreen>
       vsync: this,
       duration: Duration(milliseconds: 2000),
     );
+    _controller.forward();
   }
 
   @override
@@ -33,9 +34,11 @@ class _HomescreenState extends State<Homescreen>
 
   @override
   Widget build(BuildContext context) {
+
+    timeDilation = 1;
+
     return StaggerAnimation(
-      controller: _controller,
+      controller: _controller, /*_controller.view não funcionou*/
     );
   }
 }
-*/
