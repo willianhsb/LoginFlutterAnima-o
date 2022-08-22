@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'category_view.dart';
+
 class HomeTop extends StatelessWidget {
   final Animation<double?> containerGrow;
 
@@ -12,7 +14,7 @@ class HomeTop extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size; //obtendo o tamanho da tela
 
     return Container(
-      height: screenSize.height * 0.3,
+      height: screenSize.height * 0.4,
       /*ocupando 30% da tela*/
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -65,6 +67,7 @@ class HomeTop extends StatelessWidget {
                 ),
               ),
             ),
+            CategoryView(),
           ],
         ),
       ),
