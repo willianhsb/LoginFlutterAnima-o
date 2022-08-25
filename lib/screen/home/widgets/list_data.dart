@@ -22,8 +22,8 @@ class ListData extends StatelessWidget {
         //bordas da lista
         color: Colors.white,
         border: Border(
-            top: BorderSide(color: Colors.grey, width: 1.0),
-            bottom: BorderSide(color: Colors.grey, width: 1.0)),
+            top: BorderSide(color: Colors.grey[100]!, width: 1.0),
+            bottom: BorderSide(color: Colors.grey[100]!, width: 1.0)),
       ),
       child: Row(
         children: <Widget>[
