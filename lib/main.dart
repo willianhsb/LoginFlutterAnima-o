@@ -21,8 +21,9 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Animations',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home:LoginScreen (),
     );
   }
 }
+
 
