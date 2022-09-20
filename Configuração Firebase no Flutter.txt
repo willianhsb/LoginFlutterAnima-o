@@ -1,0 +1,33 @@
+1 - Instalar o Firebase-cli
+npm install -g firebase-tools
+yarn global add firebase-tools
+
+2 - ativar flutterfire_cli no Dart
+dart pub global activate flutterfire_cli
+
+3 - Criar o projeto no firebase
+firebase projects: create projeto-login --json
+
+4 - Configurar o firebase no projeto 
+flutterfire configure
+selecionaro o projeto desejado
+
+5 - adicionar o flutter_core nas dependencias 
+flutter pub add firebase_core
+
+6 - Adicionar no main a seguinte configuração que permite a comunicação do app flutter com o firebase
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options:DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
+}
+
+7 - Criar uma página de checagem para verificar se te usuário cadastrado ou não
+
+8 - Adicionar a dependencia firebas_auth
+flutter pub add firebase_auth
+
+

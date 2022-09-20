@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:login_flutter_animacao/screen/home/home_screen.dart';
-import 'package:login_flutter_animacao/screen/home/widgets/home_top.dart';
-
+import 'package:login_flutter_animacao/chegagem_page.dart';
+import 'package:login_flutter_animacao/firebase_options.dart';
 import 'screen/login/LoginScreen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Animations',
       debugShowCheckedModeBanner: false,
-      home:LoginScreen (),
+      home:ChecagemPage (),
     );
   }
 }
