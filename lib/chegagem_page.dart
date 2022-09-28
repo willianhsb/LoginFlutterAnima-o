@@ -1,28 +1,39 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:login_flutter_animacao/screen/home/home_screen.dart';
+import 'package:login_flutter_animacao/screen/login/LoginScreen.dart';
 
 class ChecagemPage extends StatefulWidget {
   const ChecagemPage({Key? key}) : super(key: key);
 
   @override
-  initState(){
+  State<ChecagemPage> createState() => _ChecagemPageState();
+}
+class _ChecagemPageState extends State<ChecagemPage> {
 
-    FirebaseAuth.instance
-        .authStateChanges()
-        .listen((User? user) {
+  @override
+  initState() {
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        print('Usuário não está logado!');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ),
+        );
       } else {
-        print('Usuário está logado!');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
+        );
       }
     });
   }
 
-  @override
-  State<ChecagemPage> createState() => _ChecagemPageState();
-}
-
-class _ChecagemPageState extends State<ChecagemPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
