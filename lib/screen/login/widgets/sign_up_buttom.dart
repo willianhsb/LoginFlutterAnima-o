@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:login_flutter_animacao/screen/home/widgets/form_container.dart';
 
 class SignUpButtom extends StatelessWidget {
   const SignUpButtom({Key? key}) : super(key: key);
@@ -9,7 +10,9 @@ class SignUpButtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlatButton(
       padding: EdgeInsets.only(top: 160),
-      onPressed: () {},
+      onPressed: () {
+        login();
+      },
       child: Text(
         "Não possui uma conta? Cadastre-se.",
         textAlign: TextAlign.center,
@@ -24,3 +27,5 @@ class SignUpButtom extends StatelessWidget {
     );
   }
 }
+
+

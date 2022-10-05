@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Animations',
       debugShowCheckedModeBanner: false,
-      home:ChecagemPage (),
+      home:LoginScreen (),
     );
   }
 }
